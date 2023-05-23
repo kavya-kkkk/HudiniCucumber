@@ -3,15 +3,12 @@ package stepDefinitions;
 import static org.junit.Assert.assertEquals;
 
 import java.io.File;
+
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
-
-import com.aventstack.extentreports.util.Assert;
-import com.mongodb.assertions.Assertions;
 
 public class ActionClass extends BaseClass {
 

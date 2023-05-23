@@ -18,26 +18,24 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
-import io.cucumber.java.en.*;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import pageObjects.AddClientpage;
-import pageObjects.AddDeviceClientPage;
-import pageObjects.EditClientPPage;
-import pageObjects.SigninPage;
 
 @SuppressWarnings("deprecation")
 public class StepMethod extends BaseClass {
-	
-	
 
- @AfterStep
-	public void attachScreenshot (Scenario scenario) {
-	 
-	if(scenario.isFailed()) {
-		byte[] screenshotTaken=  ((TakesScreenshot) DriverManager.getDrivers()).getScreenshotAs (OutputType.BYTES);
-	scenario.attach(screenshotTaken, "image/png", "error screen");
+	@AfterStep
+	public void attachScreenshot(Scenario scenario) {
+
+		if (scenario.isFailed()) {
+			byte[] screenshotTaken = ((TakesScreenshot) DriverManager.getDrivers()).getScreenshotAs(OutputType.BYTES);
+			scenario.attach(screenshotTaken, "image/png", "error screen");
+		}
+
 	}
-	
- }
+
 	@Before
 	public void setup() throws IOException {
 
@@ -72,64 +70,58 @@ public class StepMethod extends BaseClass {
 		logger.info("**********launching brower*********");
 	}
 
-	@Given("I launched browser")
-	public void i_launch_chrome_browser() {
-
-		signin = new SigninPage(driver);
-		actions = new ActionClass();
-		editclient = new EditClientPPage(driver);
-		adddeviceclient = new AddDeviceClientPage(driver);
-		actions = new ActionClass();
-	}
-
-	@When("I opened the hudini Signin page {string}")
-	public void i_open_the_hudini_signin_page_https_testing_d2okaspacdbhs_amplifyapp_com(String url) throws Exception {
-		driver.get(url);
-		Thread.sleep(1000);
-		logger.info("********entered url and opened the appliction***********");
-
-	}
-
-	@Then("I entered the email id {string}")
-	public void i_entered_the_email_id(String string) throws Exception {
-		/*
-		 * list<map<String,string>> creatlist=datatable.asMap();
-		 * creatlist.get(0).get("emails");
-		 */
-		Thread.sleep(1000);
-
-		signin.EnterEmail(string);
-
-		logger.info("**********entered email id*********");
-
-	}
-
-	@And("I entered the password {string}")
-	public void i_entered_the_password(String string) throws InterruptedException {
-		Thread.sleep(1000);
-		signin.EnterPassword(string);
-		logger.info("**********password*********");
-		// Assert.assertEquals("https://testing.d2okaspacdbhs.amplifyapp.com/login",addclient.getpageurl());
-	}
-
-	@Then("I clicked on signin buttton")
-	public void i_clicked_on_sigin_buttton() throws Exception {
-		
-		signin.ClickSignIn();
-		
-		
-
-	}
-
-	@Then("I closed the browser")
-	public void i_close_the_browser() throws InterruptedException {
-		
-		Thread.sleep(1000);
-		actions.URLvalidation(driver, "https://testing.d2okaspacdbhs.amplifyapp.com/dashboard");
-		Thread.sleep(1000);
-		driver.quit();
-
-	}
+	/*
+	 * @Given("I launched browser") public void i_launch_chrome_browser() {
+	 * 
+	 * signin = new SigninPage(driver); actions = new ActionClass(); editclient =
+	 * new EditClientPPage(driver); adddeviceclient = new
+	 * AddDeviceClientPage(driver); actions = new ActionClass(); }
+	 * 
+	 * @When("I opened the hudini Signin page {string}") public void
+	 * i_open_the_hudini_signin_page_https_testing_d2okaspacdbhs_amplifyapp_com(
+	 * String url) throws Exception { driver.get(url); Thread.sleep(1000);
+	 * logger.info("********entered url and opened the appliction***********");
+	 * 
+	 * }
+	 * 
+	 * @Then("I entered the email id {string}") public void
+	 * i_entered_the_email_id(String string) throws Exception {
+	 * 
+	 * list<map<String,string>> creatlist=datatable.asMap();
+	 * creatlist.get(0).get("emails");
+	 * 
+	 * Thread.sleep(1000);
+	 * 
+	 * signin.EnterEmail(string); signin.
+	 * logger.info("**********entered email id*********");
+	 * 
+	 * }
+	 * 
+	 * @And("I entered the password {string}") public void
+	 * i_entered_the_password(String string) throws InterruptedException {
+	 * Thread.sleep(1000); signin.EnterPassword(string);
+	 * logger.info("**********password*********"); //
+	 * Assert.assertEquals("https://testing.d2okaspacdbhs.amplifyapp.com/login",
+	 * addclient.getpageurl()); }
+	 * 
+	 * @Then("I clicked on signin buttton") public void i_clicked_on_sigin_buttton()
+	 * throws Exception {
+	 * 
+	 * signin.ClickSignIn();
+	 * 
+	 * 
+	 * 
+	 * }
+	 * 
+	 * @Then("I closed the browser") public void i_close_the_browser() throws
+	 * InterruptedException {
+	 * 
+	 * Thread.sleep(1000); actions.URLvalidation(driver,
+	 * "https://testing.d2okaspacdbhs.amplifyapp.com/dashboard");
+	 * Thread.sleep(1000); driver.quit();
+	 * 
+	 * }
+	 */
 
 //ADD CLIENT
 

@@ -18,5 +18,5 @@ Feature: Adding  Client as a hudini admin
     And I closed the browser
    
 
-
+ 
 

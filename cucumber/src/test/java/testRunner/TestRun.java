@@ -1,13 +1,14 @@
 package testRunner;
 
 import org.junit.runner.RunWith;
+
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = ".//Features/Login.feature", // feature file path
 
-		glue = "stepDefinitions", // package name
+		glue = "stepDefinition", // package name
 		dryRun =false, // all steps having step definition or not
 				monochrome = true,
 				   plugin = {"pretty", "html:target/cucumber-reports",
